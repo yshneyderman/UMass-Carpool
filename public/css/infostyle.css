@@ -5,7 +5,7 @@ body{
 }
 
 .bigBox{
-    height: 500px;
+    height: 600px;
     width: 700px;
     background: #cccccc;
     z-index: -1;
@@ -13,6 +13,8 @@ body{
     position: absolute;
     vertical-align: middle;
     font-size: 30px;
+    margin:auto;
+    text-align: center;
     font-family: "Century Gothic";
 }
 
@@ -26,16 +28,17 @@ body{
     width: 400px;
     border-radius: 10px;
     background: black;
-    margin: 20px;
-    position: relative;
+    margin-top: 20px;
     text-align: center;
-    top: 175px;
+    position: relative;
+    top: 240px;
     left: 125px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .box h3{
     color: #e0e0e0;
+    margin-top: -5px;
 }
 .box p{
     color: #e0e0e0;

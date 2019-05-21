@@ -14,3 +14,12 @@ app.get('/about', function (req, res) {
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 })
+
+var http = require('http');
+var fs = require('fs')
+
+http.createServer(function(req, res){
+    if(req.url === "/form"){
+      res._writeHead()
+    }
+}).listen(3000)

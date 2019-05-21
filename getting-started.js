@@ -23,7 +23,7 @@ var url = "mongodb://localhost:27017/";
 // MongoClient.connect(url, function(err, db) {
 //   if (err) throw err;
 //   var dbo = db.db("db1");
-//   var myobj = { name: "Company Inc", address: "Highway 37" };
+//   var myobj = { name: "aryan", address: "Highway 37" };
 //   dbo.collection("customers").insertOne(myobj, function(err, res) {
 //     if (err) throw err;
 //     console.log("1 document inserted");
@@ -31,6 +31,8 @@ var url = "mongodb://localhost:27017/";
 //   });
 // });
 
+// finding only one query
+// helpful to get boston trips maybe
 MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db("db1");
@@ -41,4 +43,15 @@ MongoClient.connect(url, function(err, db) {
     });
   });
 
-  
+// query to return all the cases
+// helpful to make categories for short and long trips
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("db1");
+    var query = { address: "Highway 37" };
+    dbo.collection("customers").find(query).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+    });
+});

@@ -1,25 +1,19 @@
-const express = require('express');
+// if (process.env.NODE_ENV !== 'production') {
+//   require('dotenv').load()
+// }
+
+const express = require('express')
 const app = express()
+const expressLayouts = require('express-ejs-layouts')
 
-app.use(express.static('public'));
+const indexRouter = require('./routes/index')
+
 app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views')
+app.set('layout', 'layouts/layout')
+app.use(expressLayouts)
+app.use(express.static('public'))
 
-app.get('/', function (req, res) {
-  res.render('index');
-})
-app.get('/about', function (req, res) {
-  res.render('about');
-})
+app.use('/', indexRouter)
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
-
-var http = require('http');
-var fs = require('fs')
-
-http.createServer(function(req, res){
-    if(req.url === "/form"){
-      res._writeHead()
-    }
-}).listen(3000)
+app.listen(process.env.PORT || 3000)

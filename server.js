@@ -7,7 +7,7 @@ const app = express()
 const expressLayouts = require('express-ejs-layouts')
 
 const indexRouter = require('./routes/index')
-const ridesRouter = require('./routes/index')
+const ridesRouter = require('./routes/rides')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -23,6 +23,7 @@ db.once('open', () => console.log('Connected to Mongoose'))
 
 
 app.use('/', indexRouter)
+// this will automatically use the /rides in the path
 app.use('/rides', ridesRouter)
 
 app.listen(process.env.PORT || 3000)

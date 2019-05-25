@@ -20,7 +20,25 @@ router.get('/new',(req, res) => {
 // create ride auth - create a new ride
 // post instead of get
 router.post('/', (req, res) => {
-    res.send('Create')
+    const rider = new Rider({
+        name: req.body.name
+    })
+    rider.save((err, newAuthor) => {
+        if (err){
+            // redirect to the new page with an error message
+            res.render('rides/new',{
+                rider: rider,
+                errorMessage: 'error creating rider'
+            })
+        } 
+        // if there is no error
+        else {
+            // res.redirect('riders/${newAuthor.id}')
+            res.redirect('rides')
+        }
+    })
+    // we no longer want to send the 
+    // res.send(req.body.name)
 })
 
 module.exports = router 

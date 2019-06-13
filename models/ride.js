@@ -12,6 +12,24 @@ const riderSchema = new mongoose.Schema({
     capacity: {
         type: Number,
         required: true,
+    },
+    date: {
+        type: Date,
+        required: true,
+    },
+    time: {
+        type: TimeRanges,
+        required: true
+    },
+    createdAt: {
+        type: Date,
+        required: true,
+        default: Date.now
+    },
+    rider: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'Rider'
     }
 })
 

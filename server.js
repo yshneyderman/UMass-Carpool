@@ -10,6 +10,7 @@ const bodyParser = require('body-parser')
 
 const indexRouter = require('./routes/index')
 const ridersRouter = require('./routes/riders')
+const ridesRouter = require('./routes/riders')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -28,5 +29,6 @@ db.once('open', () => console.log('Connected to Mongoose'))
 app.use('/', indexRouter)
 // this will automatically use the /riders in the path
 app.use('/riders', ridersRouter)
+app.use('/rides', ridesRouter)
 
 app.listen(process.env.PORT || 3000)
